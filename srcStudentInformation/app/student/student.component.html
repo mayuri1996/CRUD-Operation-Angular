@@ -1,0 +1,51 @@
+<div class="col-sm-6 col-sm-offset-3">
+    <mat-card>
+        <div *ngIf="!load">
+            <form [formGroup]="this.obj.studentDetails" (ngSubmit)="onSubmit()">
+                <div class="example-container">
+                    <input type="hidden" formControlName="$key">
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Enter Name" formControlName="name">
+                    </mat-form-field>
+                    <div *ngIf="f.name.errors && f.name.touched">
+                        <small *ngIf="f.name.errors.required">Name field is required</small>
+                    </div>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Enter Email" formControlName="email">
+                    </mat-form-field>
+                    <div *ngIf="f.email.errors && f.email.touched">
+                        <small *ngIf="f.email.errors.required">Email field is required</small>
+                        <small *ngIf="f.email.errors.email">Enter valid EmailId</small>
+                    </div>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Mobile Number" formControlName="contact">
+                    </mat-form-field>
+                    <div *ngIf="f.contact.errors && f.contact.touched">
+                        <small *ngIf="f.contact.errors.required">Contact is required</small>
+                        <small *ngIf="f.contact.errors.pattern">Enter valid Contact</small>
+                    </div>
+
+                    <mat-form-field>
+                        <input matInput type="text" placeholder="Enter address" formControlName="address">
+                    </mat-form-field>
+                    <div *ngIf="f.address.errors && f.address.touched">
+                        <small *ngIf="f.address.errors.required">Address is required</small>
+                    </div>
+                    <br>
+                </div>
+                <button mat-raised-button color="primary" type="submit"
+                    [disabled]="!this.obj.studentDetails.valid">Submit</button>
+                <button mat-raised-button color="accent" type="reset">Reset</button>
+            </form>
+        </div>
+        <div align="center">
+            <mat-spinner *ngIf="load"></mat-spinner>
+        </div>
+
+        <div class="alert alert-info" *ngIf="showSuccessMessage">
+            Data gets Submiting.
+        </div>
+    </mat-card>
+</div>

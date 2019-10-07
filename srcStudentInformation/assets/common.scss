@@ -1,0 +1,81 @@
+@mixin globalDesign($theme){
+    $primary: map-get($theme, primary );
+    $accent: map-get($theme, accent );
+    $warn: map-get($theme, warn );
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+
+    .mat-toolbar{
+        background-color: mat-color($background, card);
+        position: relative;
+        z-index: 2;
+        -webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.1);
+       
+    }
+    .mat-card{
+        background-color: mat-color($background, background);
+    }
+    .mat-sidenav{
+        width: 50px;
+        border: none;
+        -webkit-transition: width 0.4s; /* For Safari 3.1 to 6.0 */
+        transition: width 0.4s;
+        z-index: 2;
+        -webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.1);
+        -moz-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.1);
+        box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.1);
+    }
+    .mat-drawer-content {
+        height: 100vh;
+        overflow: auto;
+        padding: 15px;
+        
+    }
+    .theme-icon{
+        position: relative;
+        left: 1160px;
+        cursor: pointer;
+    }
+    .left-nav{
+            white-space: nowrap;
+            overflow: hidden;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li{
+                overflow: hidden;
+                text-overflow: clip;
+                padding: 10px 0px 0px 10px;
+                // background-color: mat-color($background, background);
+                padding-right: 10px;
+                cursor: pointer;
+            }
+            .left-nested-menu-tree{
+                position: relative;
+                bottom: 38px;
+                .left-nested-title{
+                    font-size: 22px;
+                    li{
+                        font-size: 15px;
+                    }
+                }
+            }
+    }
+    .title-section{
+         list-style: none;
+         margin: 0;
+         padding: 0;
+            li{
+                display: inline-block;
+                margin: 0px 15px 0px 0px;
+                cursor: pointer;
+            }
+            .title-icon{
+                position: relative;
+                top: 4px;
+            }   
+    }
+}
